@@ -14,6 +14,7 @@ Our api will be available under application context as "/student"
 create a spring boot application and put required dependencies in the pom.xml in project root directory.(please refer the pom.xml)
 
 create a StudentResource class and add required annotation. These annotation provide hint to the spring runtime to create beans and  and inject require dependencies. Most important part of the this application is it's configuration. We have following configuration the application.properties file:
+
 #this will define context for our api
 server.servlet.context-path=/student-api
 
@@ -23,4 +24,13 @@ spring.data.mongodb.database=StudentDB
 spring.data.mongodb.host=mongohost
 #this define the port on which mongodb will be available.
 spring.data.mongodb.port=27017
+
+Now create a jar by running "mvn clean install -DskipTests" in project root directory. copy the jar in a empy directory(let say myapp dir). create a Dockerfile in the same directory(please refer Dockerfile) in the project. Now run command "docker build -t spsingh-java-app1 ." It will create a new image of our application.
+
+As next step, download the mongo db image from the docker-hub by running the command "docker pull mongo".
+
+create a docker-compose.yml file in your system.(please refer the same file ) in the project dir.
+
+To explain what we have in yml file:
+we have create 2 services "web" and "mongohost" and one network "spring-boot-network". since both the services will be available on the same docker-network, out spring-boot application can easly seach the mongohost as configured in the application.properties.
 

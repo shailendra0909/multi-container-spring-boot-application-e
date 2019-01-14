@@ -39,5 +39,5 @@ Lets create a few record by posting using followin json data:
         "age": 27
     }
 
-Now you can again use get request and see the saved record. Similery try with modifying and deleting the record with PUT and DELETE option the Postman with respective api.
+Now you can again use get request and see the saved record. Similery try with modifying and deleting the record with PUT and DELETE option in Postman with respective api.
 

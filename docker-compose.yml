@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    image: "spsingh-app2"
+    container_name: "spring-boot-app"
+    networks:
+      - "spring-boot-network"
+    depends_on:
+       - "mongohost"
+    ports:
+     - "5000:8080"
+  mongohost:
+    image: "mongo"
+    container_name: "spring-boot-db"
+    networks:
+     - "spring-boot-network"
+networks: 
+  "spring-boot-network":
+    driver: bridge
